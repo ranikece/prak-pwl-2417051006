@@ -1,93 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>{{ $title ?? 'PWL User' }}</title>
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWL User</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
 
-        :root {
-            --pink: #e889ad;
-            --pink-dark: #d66f96;
-            --pink-bg: #fff7fa;
-            --dark: #3f3036;
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
         }
 
         body {
-            background-color: var(--pink-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
         }
 
-        /* Navbar dan footer */
-        .bg-dark {
-            background-color: var(--dark) !important;
+        header {
+            background-color: #402f36;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Tombol utama */
-        .btn-primary {
-            background-color: var(--pink-dark) !important;
-            border-color: var(--pink-dark) !important;
+        header h2 {
+            margin: 0;
+            color: white;
         }
 
-        .btn-primary:hover {
-            background-color: #c85f88 !important;
-            border-color: #c85f88 !important;
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 18px;
         }
 
-        /* Header card */
-        .card-header {
-            background-color: var(--pink) !important;
+        main {
+            flex: 1;
+            padding: 10px 6% 40px;
         }
 
-        /* Badge kelas */
-        .text-bg-primary {
-            background-color: var(--pink-dark) !important;
+        footer {
+            background-color: #402f36;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: auto;
         }
-
-        /* Link navbar */
-        .navbar-dark .navbar-nav .nav-link {
-            color: #f8dce7;
-        }
-
-        .navbar-dark .navbar-nav .nav-link:hover {
-            color: #ffffff;
-        }
-
-        /* Judul */
-        h1 {
-            color: var(--dark);
-        }
-
     </style>
-
 </head>
-
 
 <body>
 
-    <x-navbar />
+    <header>
+        <h2>PWL User</h2>
 
-    @yield('content')
+        <nav>
+            <a href="/user">Daftar User</a>
+            <a href="/user/create">Tambah User</a>
+        </nav>
+    </header>
 
-    <x-footer />
+    <main>
+        @yield('content')
+    </main>
 
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    ></script>
+    <footer>
+        © 2026 PWL - Pemrograman Web Lanjut
+    </footer>
 
 </body>
-
 </html>
