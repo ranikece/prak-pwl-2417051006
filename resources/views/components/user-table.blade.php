@@ -33,6 +33,7 @@
 
                         <th>
                             Kelas
+                            <th class="text-center">Aksi</th>
                         </th>
 
                     </tr>
@@ -62,6 +63,24 @@
 
                                 <span class="badge text-bg-primary">
                                     {{ $user->nama_kelas }}
+                                    <td class="text-center text-nowrap">
+    <a href="{{ route('user.edit', $user->id) }}"
+       class="btn btn-warning btn-sm">
+        Edit
+    </a>
+
+    <form action="{{ route('user.destroy', $user->id) }}"
+          method="POST"
+          class="d-inline"
+          onsubmit="return confirm('Yakin ingin menghapus pengguna ini?')">
+        @csrf
+        @method('DELETE')
+
+        <button type="submit" class="btn btn-danger btn-sm">
+            Hapus
+        </button>
+    </form>
+</td>
                                 </span>
 
                             </td>
@@ -73,8 +92,8 @@
                         <tr>
 
                             <td
-                                colspan="4"
-                                class="text-center py-4 text-muted"
+                                colspan="5"
+                                class="text-center py-5 text-muted"
                             >
                                 Belum ada data pengguna.
                             </td>
